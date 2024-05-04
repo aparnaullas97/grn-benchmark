@@ -65,7 +65,7 @@ The following bulletins describe the features, functionalities, and structure of
 3. **comp.2.cc.fdr**: This function saves a list of significantly different correlations as a text file. It utilizes the fdrtool package to manage the false discovery rate (FDR). The exported file includes molecule IDs, conditional correlation coefficients, p-values from the correlation test, the difference between the two correlations, corresponding p-values, and the result of Fisher's z-test while controlling FDR.
 
 <div style="text-align:center">
-    <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="100" >
+    <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="300" >
 </div>
 
 ### About the datasets
