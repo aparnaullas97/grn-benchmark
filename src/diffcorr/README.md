@@ -63,7 +63,7 @@ The following bulletins describe the features, functionalities, and structure of
 2. **plot.DiffCorr.group**: This functon can be used to get profile patterns of module members for each condition. This call is also based igraph package that uses the plot function. This provides profile patterns of module members for each module.
 
 3. **comp.2.cc.fdr**: This function saves a list of significantly different correlations as a text file. It utilizes the fdrtool package to manage the false discovery rate (FDR). The exported file includes molecule IDs, conditional correlation coefficients, p-values from the correlation test, the difference between the two correlations, corresponding p-values, and the result of Fisher's z-test while controlling FDR.
-<img src="(https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png)" width="100" height="100">
+<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="100" height="100">
 
 ### About the datasets
 The following bulletins describe the features, functionalities, and structure of the DiffCorr package
