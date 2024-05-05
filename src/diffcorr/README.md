@@ -161,13 +161,15 @@ The output text file contains the results of differential correlation analysis b
 ### About the dataset
 We use data sets from leaf and flower samples from AtGenExpress development [59]. (NCBI Gene Expression Omnibus (GEO) [60] Accession: GSE5630 and GSE5632, respectively). To download the data sets, we accessed the NCBI GEO database via the GEOquery package [61]. NCBI GEO is a public repository for a wide range of high-throughput data such as transcriptome data sets [60]. It includes microarray-based experiments measuring mRNA, genomic DNA, and protein abundance, as well as nonarray techniques such as NGS data, serial analysis of gene expression (SAGE), and mass spectrometry proteomic data.
 
+### About the dataset
 We detected 34 modules (or communities) in the co-expression networks with GSE5632 (flower samples) and 28 modules in the co-expression networks with GSE5630 (leaf samples). We focus on subnetworks in the top three clusters of the graph clustering results. To assess cluster fidelity, Gene Ontology (GO) term en- richment analyses were performed.
 
 Enrichment analysis can be combined with pathway analysis to evaluate whether a particular molecular group is significantly over- or underrepresented. Here, we use the GOstats package [75] to perform GO term enrichment analysis of the detected co-expression modules (Figure 1.5).
 
 The predominant function in the biological process within the three modules was assessed. Mod- ule# 1 using flower samples (GSE5632) was involved in “nucleosome assembly” within the “Biological Process” domain. Modules 2 and 3 were related to “cell pro- liferation” and “RNA methylation,” respectively
 
-<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="500" >
+<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/GO.png" width="500" >
+<figcaption><i><b>Figure 1.6 </b>HTML report of Gene Ontology (GO) enrichment analysis. Results of network Module 1 by GO enrichment analysis (filename: res_mod1.html). GO biological process on- tology terms are listed in order of predominance in the cluster module.</i></figcaption>
 
 
 
