@@ -65,22 +65,15 @@ The following bulletins describe the features, functionalities, and structure of
 3. **comp.2.cc.fdr**: This function saves a list of significantly different correlations as a text file. It utilizes the fdrtool package to manage the false discovery rate (FDR). The exported file includes molecule IDs, conditional correlation coefficients, p-values from the correlation test, the difference between the two correlations, corresponding p-values, and the result of Fisher's z-test while controlling FDR.
 
 <div style="text-align:center">
-    <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="500" >
+    <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="400" >
 </div>
 
-### The datasets
-The DiffCorr package was implemented on the following datasets
-1. **Golub Dataset**: This dataset consist of gene expression profiles from 38 tumor samples including 2 different leukemia subtypes: 27 acute lymphoblastic leukemia (ALL) and 11 acute myeloid leukemia (AML) samples (Golub et al., 1999). 
-
-2. **Arabidopsis**: Kusano et al. studied a type of Arabidopsis thaliana, a common plant used for research, that doesn't have flavonoids, which are compounds found in plants. They compared this plant to the normal type using a method called gas chromatography coupled with mass spectrometry (GC–MS) to analyze the chemicals present. The mutant plant doesn't have a gene called chalcone synthase (CHS), so it can't make any flavonoids. Flavonoids are chemicals in plants that help protect them from ultraviolet B (UV-B) radiation.
-
+_To know more about the datasets, see [here](https://github.com/aparnaullas97/grnbenchmark/blob/main/src/diffcorr/Datasets.md)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
-Explore the fundamentals of DiffCorr through the following starter resources.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 [![R Studio][R.js]][R-url]
@@ -89,21 +82,16 @@ Before starting the project, please ensure that R Studio is installed. The imple
 
 [![Cytoscape][Cytoscape.js]][Cytoscape-url]
 
-Additionally, it would be beneficial to have Cytoscape installed for interactive visualization of the networks and for performing enrichment analysis.
-
-[![Jupyter][Jupyter.js]][jupyter-url]
-
-For the down stream analysis, it would be beneficial to have Jupyter installed for interactive visualization of the Classification
+Additionally, it would be beneficial to have Cytoscape installed for interactive visualization of the networks and for performing automated enrichment analysis.
 
 ### Installation and Execution
-
-_Please follow the steps following to make sure of a smooth installation process._
+Please follow the steps following to make sure of a smooth installation process.
 
 1. Clone the repo
    ```sh
    git clone https://github.com/bionetslab/grn-benchmark.git
    ```
-2. Open terminal and Navigate till the executable script
+2. Open terminal and navigate till the executable script
    ```sh
    /grn-benchmark/src/diffcorr/Example_Script/
    ```
@@ -135,13 +123,15 @@ _Please follow the steps following to make sure of a smooth installation process
 - `--output.path`: Path to the folder where the output will be stored. This folder must already exist before running the program.
 
 ### Preprocessing
-Make sure to input 2 gene expression data which are preprocessed - normalised, filtered, non NA values
+Make sure to input 2 (matrix) gene expression data which are preprocessed - normalised, filtered, non NA values
 
 For example, a series of steps had to be taken for the Arabidopsis dataset
-1. Robust Multichip Average (RMA) method via the `justRMA` function from the `affy` package normalized the transcriptome data.
+1. Robust Multichip Average (RMA) method via the `justRMA` function from the `affy` package normalized the CEL files.
 2. The probes that do not represent biological transcripts or may have cross-hybridization issues were removed from the dataset.
 3. Genes with low expression levels and low variability across samples were filtered out using the `genefilter` package to reduces the number of targets 
 4. Common probe sets between the two datasets were identified and retained
+
+<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/Input.png" width="500" >
 
 ### Output file format specification
 Tab-separated output file will be stored at `--output.path`
@@ -155,19 +145,17 @@ The output text file contains the results of differential correlation analysis b
 - `(r1 - r2)`: Difference in correlation coefficients 
 - `lfdr (in cond. 1), lfdr (in cond. 2)`: Local false discovery rate (lfdr)
 - `lfdr (difference)`: Shows the significance of the difference between the correlations of Molecule X and Molecule Y under the two conditions.
+<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr_Golub_Table.png" width="700" >
 
 <!-- DOWNSTREAM ANALYSIS -->
-## Downstream Analysis on the Transcriptome Data set 
-The downstream analysis was performed on the datasets from leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively). The dataset was downloaded using the GEOquery package. It includes microarray-based experiments measuring mRNA, genomic DNA, and protein abundance, as well as nonarray techniques such as NGS data, serial analysis of gene expression (SAGE), and mass spectrometry proteomic data.
+## Downstream Analysis
+The downstream analysis was performed on two datasets from leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively). _To know more about the datasets, see [here](https://github.com/aparnaullas97/grnbenchmark/blob/main/src/diffcorr/Datasets.md)_. The dataset was downloaded using the GEOquery package. It includes microarray-based experiments measuring mRNA, genomic DNA, and protein abundance, as well as nonarray techniques such as NGS data, serial analysis of gene expression (SAGE), and mass spectrometry proteomic data.
 
 The following steps were performed fro the analysis via R code
-1. Normalised all CEL files using justRMA
-2. Removed control probes
-3. Applied filter fuction to reduce dimensionality
-4. Identified common probe sets between the two data sets
-5. Correlation using Spearman Rank
-6. Constructed co-expression network using the igraph package
-7. Graph Clustering
+1. Preprocessing <a href="#preprocessing"> (See above for the steps in detail)
+2. Correlation using Spearman Rank
+3. Constructed co-expression network using the igraph package
+4. Graph Clustering
 
 A total of 34 modules in the co-expression networks with GSE5632 (flower samples) and 28 modules in the co-expression networks with GSE5630 (leaf samples) were detected. We focus on subnetworks in the top three clusters of the graph clustering results. To assess cluster fidelity, Gene Ontology (GO) term en- richment analyses were performed.
 
