@@ -49,22 +49,17 @@
 <!-- ABOUT THE PACKAGE -->
 ## The Package
 
-DiffCorr is a package that can be used to analyze and visualize Differential Correlations in Biological Networks.
-It can be seen as an initial step toward interpreting causal connections and identification of potential biomarkers
+DiffCorr is a package in R that can be used to analyze and visualize Differential Correlations in Biological Networks.
+It can be seen as an initial step toward interpreting causal connections and identification of potential biomarkers.
 DiffCorr utilizes Fisher’s z-test to identify changes in correlation patterns between two data groups set in different experimental conditions. It's correlation operation is determined through Pearson’s correlation coefficient. 
-
-
-The tool first calculates correlation matrices for each dataset, detects principal component-derived "eigen-molecules" within the correlation networks, and then performs statostical tests to identify differential correlations between the two groups
-
 
 ### Structure
 The following bulletins describe the features, functionalities, and structure of the DiffCorr package
-1. **get.eigen.molecule**: This function retrieves conditional modules obtained from hierarchical cluster analysis (HCA) using the cluster.molecule function. We can use **get.eigen.molecule.graph** to visualise the modules using the igraph package
-2. **plot.DiffCorr.group**: This functon can be used to get profile patterns of module members for each condition. This call is also based igraph package that uses the plot function. This provides profile patterns of module members for each module.
+1. **get.eigen.molecule**: Retrieves conditional modules obtained from hierarchical cluster analysis (HCA) using the cluster.molecule function. We can use **get.eigen.molecule.graph** to visualise the modules using the igraph package
+2. **plot.DiffCorr.group**: Used to get profile patterns of module members for each condition. This call is also based igraph package that uses the plot function. This provides profile patterns of module members for each module.
+3. **comp.2.cc.fdr**: Saves a list of significantly different correlations as a text file. It utilizes the fdrtool package to manage the false discovery rate (FDR). The exported file includes molecule IDs, conditional correlation coefficients, p-values from the correlation test, the difference between the two correlations, corresponding p-values, and the result of Fisher's z-test while controlling FDR.
 
-3. **comp.2.cc.fdr**: This function saves a list of significantly different correlations as a text file. It utilizes the fdrtool package to manage the false discovery rate (FDR). The exported file includes molecule IDs, conditional correlation coefficients, p-values from the correlation test, the difference between the two correlations, corresponding p-values, and the result of Fisher's z-test while controlling FDR.
-
-<div style="text-align:center">
+<div align="center">
     <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="400" >
 </div>
 
@@ -111,7 +106,7 @@ Please follow the steps following to make sure of a smooth installation process.
    ```
 4. Run the following command to execute the tool for Arbitrary Datasets
     ```js
-   Rscript script_arbitrary.R --input.file.1 --input.file.2 --output.path
+   Rscript script_arbitrary.R --<input.file.1.path> --<input.file.2.path> --<output.path>
    ```
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -119,7 +114,7 @@ Please follow the steps following to make sure of a smooth installation process.
 ## Specifications
 ### Input file format specification:
 - `--input.file.1`: Path to a file in tab-separated format containing gene expression data for condition 1. Each row represents a gene, and each column represents a cell. The values in the table are normalized gene expression levels.
-- `--input.file.2`: Path to another file in tab-separated format containing gene expression data for condition 2. It follows the same structure as the file for condition 1.
+- `--input.file.2`: Path to the second dataset in tab-separated format containing gene expression data for condition 2. It follows the same structure as the file for condition 1.
 - `--output.path`: Path to the folder where the output will be stored. This folder must already exist before running the program.
 
 ### Preprocessing
@@ -149,27 +144,13 @@ The output text file contains the results of differential correlation analysis b
 
 <!-- DOWNSTREAM ANALYSIS -->
 ## Downstream Analysis
-The downstream analysis was performed on two datasets from leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively). _To know more about the datasets, see [here](https://github.com/aparnaullas97/grnbenchmark/blob/main/src/diffcorr/Datasets.md)_. The dataset was downloaded using the GEOquery package. It includes microarray-based experiments measuring mRNA, genomic DNA, and protein abundance, as well as nonarray techniques such as NGS data, serial analysis of gene expression (SAGE), and mass spectrometry proteomic data.
+To find relationships between genes or metabolites, identify modules or clusters of co-expressed genes/metabolites, and elucidate potential biological processes or pathways involved in the studied systems, downstream analysis was performed on three different datasets
 
-The following steps were performed fro the analysis via R code
-1. Preprocessing <a href="#preprocessing"> (See above for the steps in detail)
-2. Correlation using Spearman Rank
-3. Constructed co-expression network using the igraph package
-4. Graph Clustering
+1. Flowers and Leaves
+2. Golub
+3. Arabidopsis
 
-A total of 34 modules in the co-expression networks with GSE5632 (flower samples) and 28 modules in the co-expression networks with GSE5630 (leaf samples) were detected. We focus on subnetworks in the top three clusters of the graph clustering results. To assess cluster fidelity, Gene Ontology (GO) term en- richment analyses were performed.
-
-### Enrichment Analysis 
-Used the GOstats package to perform GO term enrichment analysis of the detected co-expression modules and to evaluate whether a particular molecular group is significantly over- or underrepresented
-
-Assessed the predominant function in the biological process within the three modules
-
-Module 1 using flower samples (GSE5632) was involved in “nucleosome assembly” within the “Biological Process” domain. Modules 2 and 3 were related to “cell proliferation” and “RNA methylation,” respectively
-
-<img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/GO.png" width="500" >
-<figcaption><i><b>Figure 1.6 </b>HTML report of Gene Ontology (GO) enrichment analysis. Results of network Module 1 by GO enrichment analysis (filename: res_mod1.html). GO biological process on- tology terms are listed in order of predominance in the cluster module.</i></figcaption>
-
-
+See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Datasets.md),for exhaustive notes on the datasets and findings
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -186,8 +167,6 @@ Module 1 using flower samples (GSE5632) was involved in “nucleosome assembly�
     - [x] Classification Implementation
     - [x] Scripting for Arbitrary datasets
 - [ ] Gene Regulatory Network
-
-See [here](https://github.com/othneildrew/Best-README-Template/issues) for exhaustive notes on the roadmap, datasets, and known issues.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
