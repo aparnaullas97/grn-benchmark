@@ -1,6 +1,4 @@
-# Downstream Analysis
-The downstream analysis was performed on three datasets: leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively), the Golub dataset and the Arabidopsis dataset.
-
+# Methadology and Rationale
 ## 1. Golub Dataset
 This dataset consist of gene expression profiles from 38 tumor samples including 2 different leukemia subtypes: 27 acute lymphoblastic leukemia (ALL) and 11 acute myeloid leukemia (AML) samples (Golub et al., 1999). 
 The Affymetrix GeneChip HuGeneFL (known as HU6800) microarray contains 6800 probe-sets. 
