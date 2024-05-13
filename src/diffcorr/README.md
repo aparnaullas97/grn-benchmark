@@ -39,7 +39,7 @@
       </ul>
     </li>
     <li><a href="#downstream-analysis">Downstream Analysis</a></li>
-    <li><a href="#parameter-setting">Parameter Settings</a></li>
+    <li><a href="#parameter-settings">Parameter Settings</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#references">References</a></li>
   </ol>
@@ -151,7 +151,7 @@ To find relationships between genes or metabolites, identify modules or clusters
 
 See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Datasets.md),for exhaustive notes on the datasets and findings
 
-<!-- PARAMETERS SETTINGS -->
+<!-- PARAMETER SETTINGS -->
 ## Parameter Settings
 
 ### Parameters
@@ -172,7 +172,7 @@ See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr
 - Module assignments for each gene are written to files using `write.modules`.
 - Differential correlation analysis is performed using the `plotDiffCorrGroup` and `comp.2.cc.fdr` functions from the `DiffCorr` package.
 - The `plotDiffCorrGroup` function is used to visualize differential correlations between groups.
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
