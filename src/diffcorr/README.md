@@ -63,8 +63,6 @@ The following bulletins describe the features, functionalities, and structure of
     <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/DiffCorr.png" width="400" >
 </div>
 
-_To know more about the datasets, see [here](https://github.com/aparnaullas97/grnbenchmark/blob/main/src/diffcorr/Datasets.md)_
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
