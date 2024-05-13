@@ -39,6 +39,7 @@
       </ul>
     </li>
     <li><a href="#downstream-analysis">Downstream Analysis</a></li>
+    <li><a href="#parameter-setting">Parameter Settings</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#references">References</a></li>
   </ol>
@@ -86,7 +87,7 @@ Please follow the steps following to make sure of a smooth installation process.
    ```
 2. Open terminal and navigate till the executable script
    ```sh
-   /grn-benchmark/src/diffcorr/Example_Script/
+   /grn-benchmark/src/diffcorr/Scripts/
    ```
 3. Run the command to execute the tool for exemplary datasets (No parameters required)
     
@@ -100,7 +101,7 @@ Please follow the steps following to make sure of a smooth installation process.
    ```
     Execute DiffCorr to explore the Metabolome Data of Flavonoid-Deficient Arabidopsis
     ```js
-   Rscript script_aramet.R
+   Rscript script_macro_cd8.R
    ```
 4. Run the following command to execute the tool for Arbitrary Datasets
     ```js
@@ -150,6 +151,29 @@ To find relationships between genes or metabolites, identify modules or clusters
 
 See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Datasets.md),for exhaustive notes on the datasets and findings
 
+<!-- PARAMETERS SETTINGS -->
+## Parameter Settings
+
+### Parameters
+- `mode="lower"` specifies that the lower triangle of the correlation matrix is used to create the graph.
+- A threshold of `0.95` is used to retain edges with weights above this value in the co-expression networks.
+- In hierarchical clustering, `method="pearson"` and `linkage="average"` are used.
+- For `cutree`, the height parameter `h=0.4` is set to cut the hierarchical clustering tree.
+- `get.eigen.molecule` performs eigenvalue decomposition (`methods="svd"`) with `n=2` components.
+
+### Function Explanation
+- Spearman correlation coefficients are calculated for correlation
+- The Fruchterman-Reingold algorithm is used for network layout.
+- Fast greedy community detection algorithm is applied using `fastgreedy.community`.
+- Hierarchical clustering is performed with `cluster.molecule`.
+- The `cutree` function is used to cut the hierarchical clustering tree at a specified height.
+- Eigen decomposition is performed on the correlation matrices for community detection using `get.eigen.molecule`.
+- Visualization graphs are plotted using `plot`.
+- Module assignments for each gene are written to files using `write.modules`.
+- Differential correlation analysis is performed using the `plotDiffCorrGroup` and `comp.2.cc.fdr` functions from the `DiffCorr` package.
+- The `plotDiffCorrGroup` function is used to visualize differential correlations between groups.
+
+
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -161,9 +185,8 @@ See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr
     - [x] Cytoscape
     - [x] Gene Ontology Enrichment Analysis
 - [x] Generation of scripts
-- [x] Downstream Analysis
-    - [x] Classification Implementation
     - [x] Scripting for Arbitrary datasets
+- [x] Downstream Analysis
 - [ ] Gene Regulatory Network
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
