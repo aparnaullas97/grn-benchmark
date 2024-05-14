@@ -149,7 +149,7 @@ To find relationships between genes or metabolites, identify modules or clusters
 2. Golub
 3. Arabidopsis
 
-See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Datasets.md),for exhaustive notes on the datasets and findings
+See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Downstream.md),for exhaustive notes on the datasets and findings
 
 <!-- PARAMETER SETTINGS -->
 ## Parameter Settings
