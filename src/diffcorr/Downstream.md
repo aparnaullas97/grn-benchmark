@@ -1,5 +1,5 @@
 # Downstream Analysis
-The downstream analysis was performed on three datasets: leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively), the Golub dataset and the Arabidopsis dataset. Here we go through the details of downstream analysis performed on the Arabidopsis dataset
+The downstream analysis was performed on three datasets: leaf and flower samples from the AtGenExpress development (Accession: GSE5630 and GSE5632, respectively), the Golub dataset and the Macrophages dataset. Here we go through the details of downstream analysis performed on the Arabidopsis dataset
 
 ### Heatmaps
 After correlation of both the datasets, spatstat package was used to plot the heatmaps
