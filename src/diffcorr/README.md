@@ -145,14 +145,15 @@ The output text file contains the results of differential correlation analysis b
 ## Downstream Analysis
 To find relationships between genes or metabolites, identify modules or clusters of co-expressed genes/metabolites, and elucidate potential biological processes or pathways involved in the studied systems, downstream analysis was performed on three different datasets
 
-1. Flowers and Leaves
-2. Golub
-3. Arabidopsis
+1. Golub
+2. Leaf and Flower Samples
+3. Macrophages and T-cells
 
-See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Downstream.md),for exhaustive notes on the datasets and findings
+See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Downstream.md),for exhaustive notes on the downstream analysis performed.
 
 <!-- PARAMETER SETTINGS -->
 ## Parameter Settings
+See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Wiki.md),for exhaustive notes on the methadology and parameter settings
 
 ### Parameters
 - `mode="lower"` specifies that the lower triangle of the correlation matrix is used to create the graph.
