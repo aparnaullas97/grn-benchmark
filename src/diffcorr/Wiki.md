@@ -25,7 +25,7 @@ The DiffCorr package also detetcted “switching mechanism” which are opposite
 The dataset was downloaded using the GEOquery package. It includes microarray-based experiments measuring mRNA, genomic DNA, and protein abundance, as well as nonarray techniques such as NGS data, serial analysis of gene expression (SAGE), and mass spectrometry proteomic data.
 
 #### Methadology
-1. Preprocessing (See above for the steps in detail)
+1. Preprocessing (See [README.md](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/README.md) for the steps in detail)
 2. Correlation using Spearman Rank
 3. Constructed co-expression network using the igraph package
 4. Graph Clustering
@@ -40,8 +40,5 @@ Module 1 using flower samples (GSE5632) was involved in “nucleosome assembly�
 <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/GO.png" width="500" >
 <figcaption><i><b>Figure: </b>HTML report of Gene Ontology (GO) enrichment analysis. Results of network Module 1 by GO enrichment analysis (filename: res_mod1.html). GO biological process on- tology terms are listed in order of predominance in the cluster module.</i></figcaption>
 
-## 3. Arabidopsis
-This dataset was taken to study the flavonoid-deficient Arabidopsis thaliana (the model plant) and the wild-type by using gas chromatography coupled with mass spectrometry (GC–MS)-based metabolite profiling. This mutant lacks gene encoding chalcone synthase (CHS) and cannot synthesize any flavonoids, which are plant secondary metabolites that function as protectants against ultraviolet B (UV-B) irradiation. 
-This dataset consists of the metabolite profiles of 37 samples, including 2 genotypes: 17 Columbia-0 wild-type and 20 transparent testa 4 (tt4, flavonoid defi- cient mutant) plants. The data also contain a wide-range of primary metabolites including amino acids, organic acids, fatty acids, sugars and sugar alcohols. 
-
-The DiffCorr package detected significant differential correlations between sinapate and aromatic metabolites in tt4 and wild-type plants. Aromatic metabolites in the shikimate pathway, namely sinapate, phenylalanine (Phe), and tyrosine (Tyr), were significantly correlated in tt4, but not in wild-type plants. This implies a linkage with the role of sinapoyl-malate against UV-B irradiation in the flavonoid-less tt4 mutant. 
+## 3. Macrophages and T-Cells
+Diffcorr was performed on the Macrophages and CD_8 T cells, both of which are types of immune cells with different roles in the immune system. Macrophages are white blood cells that remove unwanted materials. They engulf and break down debris, germs, and abnormal cells. Macrophages play a vital role by detecting threats and repairing tissue damage. CD8 T cells are another type of white blood cell. They identify and eliminate virus-infected or cancerous cells. CD8 T cells release substances that destroy these harmful cells. Both cell types contribute to the immune system’s defense. The datasets contains gene expression profiles of 100 samples including 2 cell types: Macrophages and CD_8 T-cells
