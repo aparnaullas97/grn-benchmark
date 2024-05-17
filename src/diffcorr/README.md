@@ -155,26 +155,6 @@ See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr
 ## Parameter Settings
 See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/Wiki.md),for exhaustive notes on the methadology and parameter settings
 
-### Parameters
-- `mode="lower"` specifies that the lower triangle of the correlation matrix is used to create the graph.
-- A threshold of `0.95` is used to retain edges with weights above this value in the co-expression networks.
-- In hierarchical clustering, `method="pearson"` and `linkage="average"` are used.
-- For `cutree`, the height parameter `h=0.4` is set to cut the hierarchical clustering tree.
-- `get.eigen.molecule` performs eigenvalue decomposition (`methods="svd"`) with `n=2` components.
-
-### Function Explanation
-- Spearman correlation coefficients are calculated for correlation
-- The Fruchterman-Reingold algorithm is used for network layout.
-- Fast greedy community detection algorithm is applied using `fastgreedy.community`.
-- Hierarchical clustering is performed with `cluster.molecule`.
-- The `cutree` function is used to cut the hierarchical clustering tree at a specified height.
-- Eigen decomposition is performed on the correlation matrices for community detection using `get.eigen.molecule`.
-- Visualization graphs are plotted using `plot`.
-- Module assignments for each gene are written to files using `write.modules`.
-- Differential correlation analysis is performed using the `plotDiffCorrGroup` and `comp.2.cc.fdr` functions from the `DiffCorr` package.
-- The `plotDiffCorrGroup` function is used to visualize differential correlations between groups.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ROADMAP -->
 ## Roadmap
 
