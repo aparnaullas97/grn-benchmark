@@ -162,13 +162,9 @@ See [here](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr
 - [x] Reproduction of implementation on Golub dataset
 - [x] Reproduction of implementation on Reference datasets
 - [x] Generation of images/results from the paper
-- [x] Analysis
-    - [x] Cytoscape
-    - [x] Gene Ontology Enrichment Analysis
 - [x] Generation of scripts
     - [x] Scripting for Arbitrary datasets
 - [x] Downstream Analysis
-- [ ] Gene Regulatory Network
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
