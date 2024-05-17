@@ -1,4 +1,4 @@
-# Methadology and Rationale
+# Methadology, Rationale and Parameter Settings
 
 ## 1. Macrophages and T-Cells
 Diffcorr was performed on the Macrophages and CD_8 T cells, both of which are types of immune cells with different roles in the immune system. Macrophages are white blood cells that remove unwanted materials. They engulf and break down debris, germs, and abnormal cells. Macrophages play a vital role by detecting threats and repairing tissue damage. CD8 T cells are another type of white blood cell. They identify and eliminate virus-infected or cancerous cells. CD8 T cells release substances that destroy these harmful cells. Both cell types contribute to the immune system’s defense. The datasets contains gene expression profiles of 100 samples including 2 cell types: Macrophages and CD_8 T-cells
@@ -37,3 +37,23 @@ See [Analysis](https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diff
 Module 1 using flower samples (GSE5632) was involved in “nucleosome assembly” within the “Biological Process” domain. Modules 2 and 3 were related to “cell proliferation” and “RNA methylation,” respectively
 
 <img src="https://github.com/aparnaullas97/grn-benchmark/blob/main/src/diffcorr/ImageResouces/GO.png" width="500" >
+
+## Parameters
+- `mode="lower"` specifies that the lower triangle of the correlation matrix is used to create the graph.
+- A threshold of `0.95` is used to retain edges with weights above this value in the co-expression networks.
+- In hierarchical clustering, `method="pearson"` and `linkage="average"` are used.
+- For `cutree`, the height parameter `h=0.4` is set to cut the hierarchical clustering tree.
+- `get.eigen.molecule` performs eigenvalue decomposition (`methods="svd"`) with `n=2` components.
+
+### Function Explanation
+- Spearman correlation coefficients are calculated for correlation
+- The Fruchterman-Reingold algorithm is used for network layout.
+- Fast greedy community detection algorithm is applied using `fastgreedy.community`.
+- Hierarchical clustering is performed with `cluster.molecule`.
+- The `cutree` function is used to cut the hierarchical clustering tree at a specified height.
+- Eigen decomposition is performed on the correlation matrices for community detection using `get.eigen.molecule`.
+- Visualization graphs are plotted using `plot`.
+- Module assignments for each gene are written to files using `write.modules`.
+- Differential correlation analysis is performed using the `plotDiffCorrGroup` and `comp.2.cc.fdr` functions from the `DiffCorr` package.
+- The `plotDiffCorrGroup` function is used to visualize differential correlations between groups.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
